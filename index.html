@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectX</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav" aria-label="Main Navigation">
+            <div class="nav__brand">
+                <img src="photos/icon.png" alt="ProjectX Logo" class="nav__logo">
+                <span class="nav__title">ProjectX</span>
+            </div>
+            <button class="nav__toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="nav__hamburger"></span>
+            </button>
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="#home" class="nav__link active">Home</a></li>
+                <li><a href="#services" class="nav__link">Services</a></li>
+                <li><a href="#signin" class="nav__link" id="signinBtn">Sign In</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+                <li><a href="#help" class="nav__link">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="section home-section">
+            <div class="home-content">
+                <h1 class="h-primary">Welcome to ProjectX</h1>
+                <p class="p-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nulla ipsa quasi a
+                    adipisci aspernatur, asperiores, animi sint at nihil itaque, exercitationem dignissimos magni
+                    voluptas architecto ut. Similique ullam adipisci optio quidem eum? Quis.</p>
+                <a href="#services" class="btn btn-primary">Explore Services</a>
+            </div>
+            <img src="photos/background.jpg" alt="Background" class="home-bg">
+        </section>
+
+        <section id="services" class="section services-section">
+            <h2 class="h-primary">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="photos/slogan.png" alt="Service 1" class="service-img">
+                    <h3>Service One</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nulla ipsa quasi a adipisci
+                        aspernatur.</p>
+                </div>
+                <div class="service-card">
+                    <img src="photos/slogan.png" alt="Service 2" class="service-img">
+                    <h3>Service Two</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nulla ipsa quasi a adipisci
+                        aspernatur.</p>
+                </div>
+                <div class="service-card">
+                    <img src="photos/slogan.png" alt="Service 3" class="service-img">
+                    <h3>Service Three</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nulla ipsa quasi a adipisci
+                        aspernatur.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <h2 class="h-primary">Contact Us</h2>
+            <form class="contact-form" autocomplete="off" novalidate>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required aria-required="true" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-required="true" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required aria-required="true"
+                        placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Sign In Modal -->
+    <div class="modal" id="signinModal" role="dialog" aria-modal="true" aria-labelledby="signinTitle" tabindex="-1"
+        hidden>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close sign in form">&times;</button>
+            <h2 id="signinTitle">Sign In</h2>
+            <form class="signin-form" autocomplete="off" novalidate>
+                <div class="form-group">
+                    <label for="signin-email">Email</label>
+                    <input type="email" id="signin-email" name="signin-email" required aria-required="true"
+                        placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="signin-password">Password</label>
+                    <input type="password" id="signin-password" name="signin-password" required aria-required="true"
+                        placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 ProjectX. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const navToggle = document.querySelector('.nav__toggle');
+        const navMenu = document.querySelector('.nav__menu');
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('nav__menu--open');
+        });
+
+        // Modal functionality
+        const signinBtn = document.getElementById('signinBtn');
+        const signinModal = document.getElementById('signinModal');
+        const modalClose = document.querySelector('.modal-close');
+        signinBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            signinModal.hidden = false;
+            signinModal.focus();
+        });
+        modalClose.addEventListener('click', () => {
+            signinModal.hidden = true;
+        });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') signinModal.hidden = true;
+        });
+        // Form validation (basic)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', e => {
+                if (!form.checkValidity()) {
+                    e.preventDefault();
+                    form.classList.add('form-invalid');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
